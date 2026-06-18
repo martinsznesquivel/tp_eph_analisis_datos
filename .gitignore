@@ -1,5 +1,6 @@
 # carpeta con los 39 archivos pesados del INDEC
-datos_indec
+datos_indec/
+pyeph/
 
 # Ignorar entornos virtuales si es que creaste uno
 .venv/
