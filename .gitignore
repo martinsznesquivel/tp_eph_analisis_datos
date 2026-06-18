@@ -1,0 +1,7 @@
+# carpeta con los 39 archivos pesados del INDEC
+datos_indec
+
+# Ignorar entornos virtuales si es que creaste uno
+.venv/
+venv/
+__pycache__/
