@@ -8,7 +8,7 @@ ruta_salida = "data/eph_formosa_ushuaia_2016_2025.csv"
 
 
 COLUMNAS_NECESARIAS = {
-    'ANO4', 'TRIMESTRE', 'AGLOMERADO', 'PONDERA',
+    'ANO4', 'TRIMESTRE', 'AGLOMERADO', 'PONDERA', 'PONDII', 'PONDIIO',
     'ESTADO', 'CAT_OCUP', 'PP04B_COD', 'PP04D_COD',
     'P21', 'P47T', 'CH04', 'CH06', 'NIVEL_ED'
 }
