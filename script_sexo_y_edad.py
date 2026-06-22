@@ -101,11 +101,24 @@ tabla = (
     df_tabla.groupby(["aglomerado", "sexo"], observed=True)
     .apply(lambda x: pd.Series({
         "media_ponderada": np.average(x["P21_REAL"], weights=x["PONDIIO"]),
-        "mediana_ponderada": mediana_ponderada(x["P47T_REAL"].values, x["PONDIIO"].values),
+        "mediana_ponderada": mediana_ponderada(x["P21_REAL"].values, x["PONDIIO"].values),
         "count": len(x)
     }), include_groups=False)
     .round(2)
 )
 
-print("TABLA RESUMEN (2016-2025)")
-print(tabla)
+# TABLA RESUMEN POR EDAD Y AGLOMERADO (2016-2025)
+df_tabla = df[(df["ESTADO_LIMPIO"] == 1) & (df["P21_REAL"] > 0)].reset_index(drop=True)
+
+tabla_edad = (
+    df_tabla.groupby(["aglomerado", "grupo_edad"], observed=True)
+    .apply(lambda x: pd.Series({
+        "media_ponderada": np.average(x["P21_REAL"], weights=x["PONDIIO"]),
+        "mediana_ponderada": mediana_ponderada(x["P21_REAL"].values, x["PONDIIO"].values),
+        "casos_muestrales (n)": len(x)
+    }), include_groups=False)
+    .round(2)
+)
+
+print("\n--- COMPARATIVA POR GRUPO ETARIO (2016-2025) ---")
+print(tabla_edad)
